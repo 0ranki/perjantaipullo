@@ -79,7 +79,19 @@ public class LotteryActivity extends AppCompatActivity {
 
             // Arvotaan indeksit selected_numbers-ArrayLististä, ei varsinaisia valittuja numeroita
             // Samojen numeroiden tarkistusta varten alustetaan varmasti sopimattomaksi numeroksi
-            int index_of_winners[] = new int[]{0xFF,0xFF,0xFF};
+            int index_of_winners[];
+            switch (number_of_winners) {
+                default:
+                    index_of_winners = new int[]{0xFF};
+                    break;
+                case 2:
+                    index_of_winners = new int[]{0xFF, 0xFF};
+                    break;
+                case 3:
+                    index_of_winners = new int[]{0xFF, 0xFF, 0xFF};
+                    break;
+            }
+
             Random random = new Random();
 
             // Arvotaan määritetty määrä voittavia indeksejä index_of_winners-taulukkoon

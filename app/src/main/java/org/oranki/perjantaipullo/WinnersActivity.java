@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class WinnersActivity extends AppCompatActivity {
 
     ArrayList<Integer> winners = new ArrayList<Integer>();
+    TextView textView_winners1;
     TextView textView_winners2;
 
     @Override
@@ -22,6 +23,7 @@ public class WinnersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_winners);
 
+        textView_winners1 = findViewById(R.id.textView_winners1);
         textView_winners2 = findViewById(R.id.textView_winners2);
 
         // Haetaan edelliseltä activityltä tuotu winners-ArrayList
@@ -43,6 +45,7 @@ public class WinnersActivity extends AppCompatActivity {
         frameAnimation.start();
 
         // Voittavat numerot TextView:hin
+        if (winners.size() == 1) textView_winners1.setText(R.string.winner);
         textView_winners2.setText(String.valueOf(winners));
     }
 

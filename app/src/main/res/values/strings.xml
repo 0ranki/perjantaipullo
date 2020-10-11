@@ -11,6 +11,7 @@
     <string name="start_lottery">Arvo numerot!</string>
     <string name="lottery_in_progress">Arvonta käynnissä, numeroita jäljellä: </string>
     <string name="winners">Voittajat:</string>
+    <string name="winner">Voittaja:</string>
     <string name="error1">Osallistujia on vähemmän kuin arvottavia numeroita!</string>
     <string name="error2">Valitse arvottavien numeroiden määrä!</string>
     <string name="chosen_numbers">Valitut numerot: </string>
