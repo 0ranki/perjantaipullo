@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/perjantaipullo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LotteryActivity"></activity>
+        <activity android:name=".WinnersActivity"></activity>
+        <activity android:name=".LotteryActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

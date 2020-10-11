@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             selected_numbers = extras.getIntegerArrayList("numbers");
@@ -31,4 +33,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SelectActivity.class);
         startActivity(intent);
     }
+
 }

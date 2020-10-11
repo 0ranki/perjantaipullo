@@ -69,8 +69,6 @@ public class SelectActivity extends AppCompatActivity {
         gridView_all.setAdapter(adapter);
         gridView_all.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE);
 
-        //int default_bg = gridView_all.getSolidColor();
-
         gridView_all.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -86,7 +84,6 @@ public class SelectActivity extends AppCompatActivity {
                     selected_numbers.remove(helper);
                     Log.d("jarno", "removed " + (position + 1) + ", selected_numbers: " + selected_numbers.toString()) ;
                 }
-
 
             }
         });
