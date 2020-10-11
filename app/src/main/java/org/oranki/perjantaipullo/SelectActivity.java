@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class SelectActivity extends AppCompatActivity {
 
@@ -78,6 +79,7 @@ public class SelectActivity extends AppCompatActivity {
 
                 if (helper == 0xFF) {
                     selected_numbers.add(position + 1);
+                    Collections.sort(selected_numbers);
                     Log.d("jarno", "added " + (position + 1) + ", selected_numbers: " + selected_numbers.toString()) ;
                 }
                 else {
