@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Perjantaipullo</string>
+    <string name="version">1.1</string>
     <string name="select_numbers">Valitse numerot</string>
     <string name="roll_the_dice">Arvontaan!</string>
     <string name="selection_done">Valmis</string>
