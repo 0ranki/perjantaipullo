@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Perjantaipullo</string>
+    <string name="select_numbers">Valitse numerot</string>
+    <string name="roll_the_dice">Arvontaan!</string>
+    <string name="selection_done">Valmis</string>
+    <string name="contestant_name">Nimi numerolle </string>
+    <string name="accept">Hyväksy</string>
+    <string name="cancel">Peru</string>
+</resources>
