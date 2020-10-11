@@ -18,15 +18,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            selected_numbers = extras.getIntegerArrayList("numbers");
-            if (selected_numbers != null) {
-                Toast.makeText(getApplicationContext(), "Valitut numerot: " + selected_numbers.toString(), Toast.LENGTH_LONG).show();
-            }
-        }
     }
 
     public void onClickSelect(View view) {
