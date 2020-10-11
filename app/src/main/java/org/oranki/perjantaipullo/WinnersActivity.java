@@ -24,6 +24,7 @@ public class WinnersActivity extends AppCompatActivity {
 
         textView_winners2 = findViewById(R.id.textView_winners2);
 
+        // Haetaan edelliseltä activityltä tuotu winners-ArrayList
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             winners = extras.getIntegerArrayList("extras_winners");
@@ -31,18 +32,25 @@ public class WinnersActivity extends AppCompatActivity {
             Log.d("jarno", "winners.size()=" + winners.size());
         }
 
-        ImageView confetti = (ImageView)findViewById(R.id.imageView_confetti);
-        confetti.setBackgroundResource(R.drawable.animation_confetti);
+        // Animoitu taustakuva:
+        ImageView confetti = (ImageView)findViewById(R.id.imageView_confetti);  // Haetaan kyseinen ImageView
+        confetti.setBackgroundResource(R.drawable.animation_confetti);          // Asetetaan TAUSTAKUVAKSI animaatio
+        // animation confetti määritelty app/res/drawable/animation_confetti.xml:ssä kuva kuvalta
+        // koska Android ei tue GIFejä
 
+        // Luodaan AnimationDrawable ImageView:stä
         AnimationDrawable frameAnimation = (AnimationDrawable) confetti.getBackground();
-
         frameAnimation.start();
 
+        // Voittavat numerot TextView:hin
         textView_winners2.setText(String.valueOf(winners));
     }
 
+    // OnClick Alkuun-napille
     public void onClickReset(View v) {
         Intent intent = new Intent(this, MainActivity.class);
+        // Asetetaan liput, joilla Intentin yhteydessä aloitetaan uusi Task, tai tyhjennetään entinen
+        // Jotta vanhat arvotut numerot eivät jää kummittelemaan
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
