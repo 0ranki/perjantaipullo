@@ -19,6 +19,7 @@ public class SelectActivity extends AppCompatActivity {
 
     GridView gridView_all;
 
+    // String-array, jonka perusteella täytetään gridView_all adapterilla
     static final String[] all_numbers = new String[]{
             "1","2","3","4","5","6","7","8","9","10",
             "11","12","13","14","15","16","17","18","19","20",
@@ -32,20 +33,26 @@ public class SelectActivity extends AppCompatActivity {
             "91","92","93","94","95","96","97","98","99"
     };
 
+    // Tähän ArrayListiin listataan valitut numerot ja viedään seuraavaan activityyn
     public ArrayList<Integer> selected_numbers = new ArrayList();
 
+    // Apumetodi, jolla tarkistetaan onko parametrina annettu numero selected_numbersissa
     public int isSelected(int number) {
         for (int i = 0; i < selected_numbers.size(); i++) {
             if (number == selected_numbers.get(i)) return i;
         }
         return 0xFF;
+        // palauttaa indeksin, jos numero on valittu, ja 0xFF jos ei valittu
     }
 
+    // Luodaan ylätoimintopalkkiin "valikko", jossa on vain "VALMIS"-vaihtoehto
+    // liittyy app/res/values/menu/activity_select_menu.xml:ään
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_select_menu, menu);
         return true;
     }
 
+    // Määritetään, mitä tapahtuu, kun valikon itemiä painetaan
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.selection_done) {
@@ -64,24 +71,29 @@ public class SelectActivity extends AppCompatActivity {
 
         gridView_all = findViewById(R.id.gridView_numbers);
 
+        // Täytetään Gridview
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, all_numbers);
-
         gridView_all.setAdapter(adapter);
-        gridView_all.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE);
+        gridView_all.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE); // Monivalinta-tila GridView:lle
 
+        // onClick gridView:n itemille
         gridView_all.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                // Tarkistetaan, onko numero jo valittuna selected_numbersissa
+                // helper = indeksi, jos löytyy
                 int helper = isSelected(position + 1);
 
-                if (helper == 0xFF) {
-                    selected_numbers.add(position + 1);
-                    Collections.sort(selected_numbers);
+                if (helper == 0xFF) {   // Jos ei valittuna
+                    selected_numbers.add(position + 1); // Lisätään numero selected_numbersiin
+                    Collections.sort(selected_numbers); // Järjestetään selected_numbers nousevaan järjestykseen
+                    // Debuggausta
                     Log.d("jarno", "added " + (position + 1) + ", selected_numbers: " + selected_numbers.toString()) ;
                 }
-                else {
-                    selected_numbers.remove(helper);
+                else {                  // Jos valittuna
+                    selected_numbers.remove(helper);    // Poistetaan numero selected_numbersista
+                    // Debuggausta
                     Log.d("jarno", "removed " + (position + 1) + ", selected_numbers: " + selected_numbers.toString()) ;
                 }
 
